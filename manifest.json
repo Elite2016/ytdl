@@ -1,0 +1,26 @@
+{
+	"name": "123 YTDL Extension",
+	"developer": {
+		"name": "DA"
+	},
+	"description": "Youtube Video Downloader with direct links",
+	"manifest_version": 2,
+	"version": "1.0",
+	"icons": {
+		"48": "icons/icon.png"
+	},
+	"background": {
+		"scripts": ["includes/background.js"]
+	},
+	"content_scripts": [{
+			"js": ["includes/ytdl.js"],
+			"matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
+			"exclude_matches": ["http://www.youtube.com/embed/*", "https://www.youtube.com/embed/*"],
+			"run_at": "document_start"
+		}
+	],
+	"web_accessible_resources": ["icons/icon.png","options/options.html"],
+	"permissions": ["<all_urls>", "downloads", "storage"],
+	"incognito": "spanning"
+
+}
